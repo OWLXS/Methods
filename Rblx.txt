@@ -1,0 +1,62 @@
+Para instalar Roblox no Ubuntu, você precisará usar o Wine, que é uma camada de compatibilidade que permite que aplicativos Windows sejam executados no Linux. Siga estas etapas para instalar e configurar Roblox no seu sistema Ubuntu:
+
+1. **Instale o Wine**:
+   - Abra o terminal e atualize os repositórios:
+     ```bash
+     sudo apt update
+     sudo apt upgrade
+     ```
+   - Adicione o repositório WineHQ:
+     ```bash
+     sudo dpkg --add-architecture i386
+     sudo mkdir -pm755 /etc/apt/keyrings
+     sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+     sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -cs)/winehq-$(lsb_release -cs).sources
+     ```
+   - Instale o Wine:
+     ```bash
+     sudo apt update
+     sudo apt install --install-recommends winehq-stable
+     ```
+
+2. **Instale o Winetricks**:
+   - Winetricks é um script que facilita a instalação de bibliotecas e aplicativos Windows no Wine.
+     ```bash
+     sudo apt install winetricks
+     ```
+
+3. **Configure o Wine**:
+   - Configure o Wine executando:
+     ```bash
+     winecfg
+     ```
+   - Siga as instruções para instalar os pacotes recomendados e configure o ambiente Wine como Windows 10.
+
+4. **Instale Roblox**:
+   - Baixe o instalador do Roblox a partir do site oficial: [Roblox Download](https://www.roblox.com/download)
+   - Navegue até o diretório de downloads e execute o instalador com o Wine:
+     ```bash
+     cd ~/Downloads
+     wine RobloxPlayerLauncher.exe
+     ```
+   - Siga as instruções do instalador para concluir a instalação.
+
+5. **Execute o Roblox**:
+   - Após a instalação, você pode iniciar o Roblox através do terminal:
+     ```bash
+     wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Roblox/Versions/*/RobloxPlayerBeta.exe
+     ```
+   - Alternativamente, crie um atalho no desktop ou no menu de aplicativos para facilitar o acesso.
+
+### Dicas Adicionais
+- **Desempenho**: O desempenho do Roblox pode variar no Wine. Se você encontrar problemas de desempenho, pode tentar ajustar as configurações do Wine ou usar o Lutris, uma plataforma de jogos para Linux que facilita a configuração de jogos Windows no Linux.
+- **Lutris**:
+  - Instale o Lutris:
+    ```bash
+    sudo add-apt-repository ppa:lutris-team/lutris
+    sudo apt update
+    sudo apt install lutris
+    ```
+  - Use o Lutris para procurar e instalar o Roblox. Ele pode aplicar otimizações específicas para melhorar o desempenho.
+
+Seguindo essas etapas, você deverá conseguir jogar Roblox no seu computador Ubuntu. Se encontrar problemas específicos, procurar por soluções na comunidade do Wine ou do Lutris pode ser útil.
